@@ -40,6 +40,10 @@ h1 {
   text-align: center;
 }
 
+.selected {
+  background-color: blue;
+}
+
 
 .square{
   width: 30%;
@@ -47,5 +51,4 @@ h1 {
   margin: calc(10% / 6);
   padding-bottom: 30%;
   background-color: purple;
-
 }

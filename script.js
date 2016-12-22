@@ -1,5 +1,5 @@
-
-var colors = generateRandomColors(6);
+var numSquares = 6;
+var colors = generateRandomColors(numSquares);
 
 var squares = document.querySelectorAll('.square');
 var pickedColor = pickRandomColor();
@@ -7,16 +7,64 @@ var h1 = document.querySelector('h1');
 var colorDisplay = document.getElementById('colorDisplay');
 var messageDisplay = document.getElementById('message');
 var resetButton = document.querySelector('#reset');
+var easyButton = document.querySelector('#easy');
+var hardButton = document.querySelector('#hard');
 
 
 colorDisplay.textContent = pickedColor;
 
 
+easyButton.addEventListener('click', function() {
+  //add selected class to the easyButton an remove it from hardButton
+  this.classList.add('selected');
+  hardButton.classList.remove('selected');
+  numSquares = 3;
+  //generate (3) new random colors
+  colors = generateRandomColors(numSquares);
+  //pick a new color
+  pickedColor = pickRandomColor();
+  //display the pickedColor in the header
+  colorDisplay.textContent = pickedColor;
+  //loop through all 6 squares
+  for (var i = 0; i < squares.length; i++) {
+    //check if there is a color in those 3 indexes
+    if (colors[i]) {
+      //if there is a color then change the color of those 3 squares
+      squares[i].style.backgroundColor = colors[i];
+    } else {
+      // if there is not color after the third index then hide the las 3 squares
+      squares[i].style.display = 'none';
+    }
+  }
+});
+
+
+hardButton.addEventListener('click', function() {
+  //add selected class to the HardButton an remove it from easyButton
+  this.classList.add('selected');
+  easyButton.classList.remove('selected');
+  numSquares = 6;
+  //generate (6) new random colors
+  colors = generateRandomColors(numSquares);
+  //pick a new color
+  pickedColor = pickRandomColor();
+  //display the pickedColor in the header
+  colorDisplay.textContent = pickedColor;
+  //loop through all 6 squares
+  for (var i = 0; i < squares.length; i++) {
+      //if there is a color then change the color of those 3 squares
+      squares[i].style.backgroundColor = colors[i];
+      // if there is not color after the third index then hide the las 3 squares
+      squares[i].style.display = 'block';
+  }
+});
+
+
 resetButton.addEventListener('click', function() {
   //generate all new colors
-  colors = generateRandomColors(6);
+  colors = generateRandomColors(numSquares);
   //pick a new random color from array
-  var pickedColor = pickRandomColor();
+  pickedColor = pickRandomColor();
   //display the pickedColor in the header
   colorDisplay.textContent = pickedColor;
   //reset header background back to its default color
