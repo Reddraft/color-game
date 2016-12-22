@@ -24,16 +24,22 @@ body {
   margin: 0 auto;
 }
 
-h1 {
-  color: #fff
-}
-
-#message {color: #fff;}
-
 
 /***********************************************
 GAME STYLES
 ***********************************************/
+
+h1 {
+  text-align: center;
+  color: #fff
+}
+
+#stripe {
+  background-color: #fff;
+  height: 30px;
+  text-align: center;
+}
+
 
 .square{
   width: 30%;
