@@ -15,35 +15,72 @@ GENERAL STYLES
 }
 
 body {
-  position: relative;
   background-color: #232323;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #container {
   width: 600px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
-
 
 /***********************************************
 GAME STYLES
 ***********************************************/
 
 h1 {
+  font-weight: 300;
   text-align: center;
-  color: #fff
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  background-color: steelblue;
+  color: #fff;
+  padding: 20px 0;
+}
+
+#colorDisplay {
+  font-size: 200%;
 }
 
 #stripe {
   background-color: #fff;
   height: 30px;
   text-align: center;
+  font-size: 0;
 }
 
+#message {
+  display: inline-block;
+  width: 20%;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: steelblue;
+}
+
+button {
+  border: none;
+  height: 100%;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 16px;
+  background-color: #fff;
+  color: steelblue;
+  letter-spacing: 1px;
+  outline: none;
+  padding: 0 10px;
+  -webkit-transition: all .5s;
+          transition: all .5s;
+}
+
+button:hover,
 .selected {
-  background-color: blue;
+  background-color: steelblue;
+  color: #fff;
 }
-
 
 .square{
   width: 30%;
@@ -51,4 +88,7 @@ h1 {
   margin: calc(10% / 6);
   padding-bottom: 30%;
   background-color: purple;
+  border-radius: 10%;
+  -webkit-transition: background-color .5s;
+          transition: background-color .5s;
 }

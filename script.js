@@ -1,14 +1,15 @@
 var numSquares = 6;
 var colors = generateRandomColors(numSquares);
+var pickedColor = pickRandomColor();
 
 var squares = document.querySelectorAll('.square');
-var pickedColor = pickRandomColor();
 var h1 = document.querySelector('h1');
 var colorDisplay = document.getElementById('colorDisplay');
 var messageDisplay = document.getElementById('message');
 var resetButton = document.querySelector('#reset');
 var easyButton = document.querySelector('#easy');
 var hardButton = document.querySelector('#hard');
+
 
 
 colorDisplay.textContent = pickedColor;
@@ -52,9 +53,9 @@ hardButton.addEventListener('click', function() {
   colorDisplay.textContent = pickedColor;
   //loop through all 6 squares
   for (var i = 0; i < squares.length; i++) {
-      //if there is a color then change the color of those 3 squares
+      //add a color to each square
       squares[i].style.backgroundColor = colors[i];
-      // if there is not color after the third index then hide the las 3 squares
+      //display all squares
       squares[i].style.display = 'block';
   }
 });
@@ -68,7 +69,10 @@ resetButton.addEventListener('click', function() {
   //display the pickedColor in the header
   colorDisplay.textContent = pickedColor;
   //reset header background back to its default color
-  h1.style.backgroundColor = '#232323';
+  h1.style.backgroundColor = 'steelblue';
+  messageDisplay.style.color = 'steelblue';
+  messageDisplay.textContent = "";
+  resetButton.textContent = "New Colors"
   //change colors of the squares
   for (var i = 0; i < squares.length; i++) {
     //add initial colors
@@ -87,7 +91,8 @@ for (var i = 0; i < squares.length; i++) {
     var clickedColor = this.style.backgroundColor;
     //compare color to pickedColor;
     if (clickedColor === pickedColor) {
-      messageDisplay.textContent = 'Correct';
+      messageDisplay.textContent = 'Got It!';
+      messageDisplay.style.color = clickedColor;
       resetButton.textContent = 'play Again';
       changeSquaresColors(clickedColor);
       h1.style.backgroundColor = clickedColor;
